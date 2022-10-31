@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS/DHCP</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/dns-style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="./landing_page.html">Начало</a></li>
+                <li><a href="./dns.html">DNS</a></li>
+                <li><a href="#">DHCP</a></li>
+                <li><a href="#">Въпроси</a></li>
+                <li><a href="#">Източници</a></li>
+            </ul>
+            <img src="../assets/logo.png" alt="logo">
+        </nav>
+
+        <div class="content-container">
+
+            <div class="main-content">
+                <div class="main-text">
+                    <h1>D</h1>
+                    <h6>omain</h6>
+                    <h1>N</h1>
+                    <h6>ame</h6>
+                    <h1>S</h1>
+                    <h6>ystem</h6>
+                    </h1>
+                </div>
+
+                <div class="content">
+                    <h2 class="title">Какво е DNS (Система за имена на домейните) ?</h2>
+                    <div class="content-section-right">
+                        <h4>DNS представлява разпределена база от данни за компютри,
+                            услуги или други ресурси свързани към интернет или частни мрежи,
+                            с чиято помощ се осъществява преобразуването на имената на хостовете
+                            в IP адреси.Това е общо взето телефонният указател на Интернет.
+                            Всички имаме достъп до информация онлайн чрез имена на домейни.
+                            DNS превежда имената на домейни в IP адреси,
+                            така че браузърите да могат да те приземят на правилната страница –
+                            превежда буквите в цифри.</h4>
+                    </div>
+
+                    <h2 class="title">Как се образува име на домейн ?</h2>
+                    <div class="content-section-left">
+                        <h4>Името на домейн се състои от две или повече части, които са разделени от точки. Например
+                            wikipedia.org </h4>
+                        <ul>
+                            <li>Най-дясната част изразява домейна от първо ниво (например адресът en.wikipedia.org има
+                                домейн от първо ниво org).</li>
+                            <li>Всяка част, разделена с точка представлява поддомейн на домейна, изписан след нея.</li>
+                            <li>Възможно е един IP адрес да има няколко DNS имена, както е възможно и обратното – на
+                                едно DNS име да отговарят няколко IP адреса.</li>
+                        </ul>
+                    </div>
+
+                    <h2 class="title">Има два вида домейни от първо ниво – общи и с код за страна</h2>
+                   <div class="table">
+                     <table style="width:100%">
+                        <tr>
+                          <th>Име</th>
+                          <th>Тип на организацията</th>
+                        </tr>
+                        <tr>
+                          <td>.com</td>
+                          <td>Търговски</td>
+                        </tr>
+                        <tr>
+                            <td>.edu</td>
+                            <td>Образователен</td>
+                          </tr>
+                          <tr>
+                            <td>.gov</td>
+                            <td>Правителствен</td>
+                          </tr>
+                          <tr>
+                            <td>.net</td>
+                            <td>Мрежов</td>
+                          </tr>
+                          <tr>
+                            <td>.org</td>
+                            <td>Нетърговски</td>
+                          </tr>
+                      </table>
+                   </div>
+                   
+                    <div class="content-section-right">
+                        <h4>Правилният избор на разширение може да повлияе на популярността на сайта Ви и 
+                            на позицията, на която той ще излиза в резултатите на търсачките. Ето защо е 
+                            важно да прецените предимствата и недостатъците на всеки от двата варианта.
+                            Ако искате да достигнете до по-широк кръг от хора или искате домейнът Ви да 
+                            подсказва за какво е сайтът, може да изберете общ домейн от първо ниво.
+                            Използването на .com или .net домейн например ще повиши доверието в сайта Ви. 
+                            Ако искате да се концентрирате върху местен пазар, би било по-подходящо 
+                            да използвате местно домейн разширение. Общ домейн с код за страна е най-добрият 
+                            начин да покажете на потенциалните си клиенти, че могат да Ви се доверят и 
+                            че искате да предлагате стоки или услуги конкретно в тази държава.
+                            Някои домейни с код за страна са чудесна алтернатива на общите домейни дори 
+                            за уеб сайтове, насочени към световния пазар. Местни разширения като .tv, .fm,
+                             или .cc са толкова популярни в световен мащаб, че понякога са наричани общи 
+                             домейни с код за страна.</h4>
+                             <h4>Повече информация за локален и глобален домейн <a class="other-links" href="https://www.icdsoft.com/bg/blog/com-%D0%B8%D0%BB%D0%B8-bg-%D0%B4%D0%BE%D0%BC%D0%B5%D0%B9%D0%BD/">тук</a></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+
+                <div class="box">
+
+                    <img class="image" src="../assets/ipdomain.png" alt="image">
+
+                </div>
+
+                <div class="box">
+
+                    <img class="image" src="../assets/domainNameCreation.png" alt="image">
+
+                </div>
+
+                <div class="box">
+
+                    <img class="image" src="../assets/mostFamousDomains.png" alt="image">
+
+                </div>
+
+                <div class="box">
+
+                    <img class="image" src="../assets/mostFamousLocalDomains.png" alt="image">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
