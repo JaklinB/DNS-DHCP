@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100%;
+    background: #e1e1e1;
+    position: relative;
+    overflow: hidden;
+}
+
+nav {
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul a {
+    text-decoration: none;
+    padding: 0.3rem 1.3rem;
+    font-size: 17px;
+    font-weight: bold;
+    color: #2e3645;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul a:hover {
+    color: #2e3645;
+}
+
+nav ul a::after {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    border-radius: 20px;
+    background-color: #00ee42;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+nav ul a:hover:after {
+    width: 100%;
+}
+
+.content-container {
+    display: block;
+    justify-content: center;
+}
+
+.main-content {
+    width: 60%;
+    margin-left: 3rem;
+    display: block;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+nav img {
+    width: 80px;
+    border-radius: 20%;
+}
+
+.main-content h1 {
+    font-size: 50px;
+    margin-bottom: 2%;
+    letter-spacing: 1px;
+    color: #00ee42;
+}
+
+.olcards,
+.olcards * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.olcards {
+  list-style: none;
+  counter-reset: cardCount;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  --cardsGap: 1rem;
+  gap: var(--cardsGap);
+  padding-bottom: var(--cardsGap);
+}
+.olcards li {
+  counter-increment: cardCount;
+  display: flex;
+  color: white;
+  --labelOffset: 1rem;
+  --arrowClipSize: 1.5rem;
+  margin-top: var(--labelOffset);
+}
+
+.olcards li::before {
+  content: counter(cardCount, decimal-leading-zero);
+  background: white;
+  color: #2e3645;
+  font-size: 2em;
+  font-weight: 700;
+  transform: translateY(calc(-1 * var(--labelOffset)));
+  margin-right: calc(-1 * var(--labelOffset));
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.5em;
+}
+
+.olcards li .content {
+  background-color: #2e3645;
+  --inlinePadding: 1em;
+  --boxPadding: 0.5em;
+  display: grid;
+  padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize))
+    var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+  gap: 0.25em 1em;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--arrowClipSize)) 0,
+    100% 50%,
+    calc(100% - var(--arrowClipSize)) 100%,
+    calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)),
+    0 calc(100% + var(--cardsGap))
+  );
+  position: relative;
+}
+.olcards li .content::before {
+  content: "";
+  position: absolute;
+  width: var(--labelOffset);
+  height: var(--labelOffset);
+  background: #2e3645;
+  left: 0;
+  bottom: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  filter: brightness(0.75);
+}
+.olcards li .content::after {
+  content: "";
+  position: absolute;
+  height: var(--cardsGap);
+  width: var(--cardsGap);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent 50%);
+  left: 0;
+  top: 100%;
+}
+
+
+.olcards li .content .text {
+  grid-area: text;
+}
+
+.olcards li .content .text a{
+    color: #e1e1e1;
+    text-decoration: none;
+}
