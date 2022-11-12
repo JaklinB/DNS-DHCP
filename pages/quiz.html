@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS/DHCP</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/quiz-style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="./landing_page.html">Начало</a></li>
+                <li><a href="./dns.html">DNS</a></li>
+                <li><a href="./dhcp.html">DHCP</a></li>
+                <li><a href="./quiz.html">Въпроси</a></li>
+                <li><a href="#">Източници</a></li>
+            </ul>
+            <img src="../assets/logo.png" alt="logo">
+        </nav>
+
+        <div class="content-container">
+
+            <div class="main-content">
+                <div class="main-text">
+                    <h1>Въпроси</h1>
+                </div>
+            </div>
+
+            <div id="quiz"></div>
+            <button id="submit">Виж резултата</button>
+            <div id="results"></div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <script>
+        var myQuestions = [
+            {
+                question: "Колко вида домейни от първо ниво има?",
+                answers: {
+                    a: '3',
+                    b: '5',
+                    c: '2'
+                },
+                correctAnswer: 'c'
+            },
+            {
+                question: "Каква работа извършва DNS?",
+                answers: {
+                    a: 'Разпространява IP адреси в мрежата',
+                    b: 'Превежда имената на домейни в IP адреси',
+                    c: 'Друго'
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "Коя част изразява домейна от първо ниво в следния линк: https://www.domain-name.com",
+                answers: {
+                    a: '.com',
+                    b: 'www.',
+                    c: 'domain-name'
+                },
+                correctAnswer: 'a'
+            },
+            {
+                question: "DHCP e:",
+                answers: {
+                    a: 'домейн',
+                    b: 'протокол',
+                    c: 'нито едно от изброените'
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "Какво се случва при DHCPOFFER ?",
+                answers: {
+                    a: 'Клиентът изпраща заявка за взимане под наем на адрес от един от предлаганите DHCP сървъри.',
+                    b: 'DHCP сървърите в мрежата предлагат адрес на клиента.',
+                    c: 'Клиентът изпраща заявка за DHCP сървър.'
+                },
+                correctAnswer: 'b'
+            },
+            {
+                question: "За коя от четирите стъпки на DHCP комуникация се отнася твърдението: \"Клиента получава потвърждение, че може да използва предлаганата IP конфигурация.\" ?",
+                answers: {
+                    a: 'DHCPDISCOVER',
+                    b: 'DHCPREQUEST',
+                    c: 'DHCPACK'
+                },
+                correctAnswer: 'c'
+            }
+        ];
+
+        var quizContainer = document.getElementById('quiz');
+        var resultsContainer = document.getElementById('results');
+        var submitButton = document.getElementById('submit');
+
+        generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+        function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+
+            function showQuestions(questions, quizContainer) {
+                var output = [];
+                var answers;
+
+                for (var i = 0; i < questions.length; i++) {
+
+                    answers = [];
+
+                    for (letter in questions[i].answers) {
+
+                        answers.push(
+                            '<label>'
+                            + ' ' + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+                            + ' ' + questions[i].answers[letter]
+                            + '</label>'
+                        );
+                    }
+
+                    var questionNumber = i+1;
+
+                    output.push(
+                        '<div class="question">' + questionNumber + '. ' +questions[i].question + '</div>'
+                        + '<div class="answers">' + answers.join('') + '</div>'
+                    );
+                }
+
+                quizContainer.innerHTML = output.join('');
+            }
+
+
+            function showResults(questions, quizContainer, resultsContainer) {
+
+                var answerContainers = quizContainer.querySelectorAll('.answers');
+
+                var userAnswer = '';
+                var numCorrect = 0;
+
+                for (var i = 0; i < questions.length; i++) {
+
+                    userAnswer = (answerContainers[i].querySelector('input[name=question' + i + ']:checked') || {}).value;
+
+                    if (userAnswer === questions[i].correctAnswer) {
+                        numCorrect++;
+
+                        answerContainers[i].style.color = '#00ee42';
+                        answerContainers[i].style.fontWeight = "900";
+                    }
+                    else {
+                        answerContainers[i].style.color = 'red';
+                    }
+                }
+
+                resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+            }
+
+            showQuestions(questions, quizContainer);
+
+            submitButton.onclick = function () {
+                showResults(questions, quizContainer, resultsContainer);
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
